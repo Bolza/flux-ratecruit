@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Flux TodoMVC Example
 
 > An application architecture for React utilizing a unidirectional data flow.
@@ -157,3 +158,6 @@ This TodoMVC application was created by [Bill Fisher](https://www.facebook.com/b
 
 ## License
 Flux is BSD-licensed. We also provide an additional patent grant.
+=======
+# flux-ratecruit
+>>>>>>> 2975f342bf87a0ce99ba1ab944290d9258ff841c
