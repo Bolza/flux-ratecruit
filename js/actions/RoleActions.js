@@ -17,10 +17,10 @@ var RoleActions = {
   /**
    * @param  {string} text
    */
-  create: function(text) {
+  create: function(obj) {
     AppDispatcher.dispatch({
       actionType: RoleConstants.ROLE_CREATE,
-      text: text
+      role: obj
     });
   },
 

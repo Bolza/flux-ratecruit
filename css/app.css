@@ -13,6 +13,28 @@
  * We are not changing from display:none, but rather re-rendering instead.
  * Therefore this needs to be displayed normally by default.
  */
+body {
+    width: 800px;
+}
 #ratecruitApp li .edit {
   display: inline;
+}
+#ratecruitApp li {
+    font-size: 16px;
+    border-bottom: 1px dotted #ccc !important;
+}
+#ratecruitApp li .box {
+    margin-left: 30px;
+}
+#ratecruitApp li span {
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+    margin-left: 10px;
+    width: 200px;
+    display: inline-block;
+}
+#ratecruitApp input {
+    height: 26px;
+    margin-left: 10px;
+    font-size: 14px;
 }

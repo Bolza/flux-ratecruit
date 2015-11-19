@@ -2,6 +2,7 @@ var React = require('react');
 var ReactPropTypes = React.PropTypes;
 var RoleActions = require('../actions/RoleActions');
 var TextInput = require('./TextInput.react');
+var RoleFieldSet = require('./RoleFieldSet.react');
 
 var classNames = require('classnames');
 
@@ -25,12 +26,7 @@ var RoleItem = React.createClass({
 
         var input;
         if (this.state.isEditing) {
-            input =
-            <TextInput
-                className="edit"
-                onSave={this._onSave}
-                value={role.text}
-            />;
+            input = <RoleFieldSet className="edit" onSave={this._onSave} role={role} />;
         }
 
         // List items should get the class 'editing' when editing
@@ -38,6 +34,7 @@ var RoleItem = React.createClass({
         // Note that 'completed' is a classification while 'complete' is a state.
         // This differentiation between classification and state becomes important
         // in the naming of view actions toggleComplete() vs. destroyCompleted().
+
         return (
             <li
             className={classNames({
@@ -48,7 +45,11 @@ var RoleItem = React.createClass({
                 <div className="view">
                     <input className="toggle" type="checkbox"
                         checked={role.complete} onChange={this._onToggleComplete} />
-                    <label onDoubleClick={this._onDoubleClick}> {role.text} </label>
+                    <div className="box" onDoubleClick={this._onDoubleClick}>
+                        <span > {role.company} </span>
+                        <span > {role.recruiter} </span>
+                        <span > {role.dailyrate} </span>
+                    </div>
                     <button className="destroy" onClick={this._onDestroyClick} />
                 </div>
                 {input}

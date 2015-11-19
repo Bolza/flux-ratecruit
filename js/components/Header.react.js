@@ -1,6 +1,7 @@
 var React = require('react');
 var RoleActions = require('../actions/RoleActions');
 var TextInput = require('./TextInput.react');
+var RoleFieldSet = require('./RoleFieldSet.react');
 
 var Header = React.createClass({
 
@@ -10,12 +11,8 @@ var Header = React.createClass({
     render: function() {
         return (
             <header id="header">
-            <h1>todos</h1>
-            <TextInput
-            id="new-todo"
-            placeholder="What needs to be done?"
-            onSave={this._onSave}
-            />
+                <h1>Roles</h1>
+                <RoleFieldSet id="new-todo" onSave={this._onSave} />
             </header>
         );
     },
@@ -26,11 +23,8 @@ var Header = React.createClass({
     * in different ways.
     * @param {string} text
     */
-    _onSave: function(text) {
-        if (text.trim()){
-            RoleActions.create(text);
-        }
-
+    _onSave: function(role) {
+        RoleActions.create(role);
     }
 
 });

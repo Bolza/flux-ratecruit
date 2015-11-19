@@ -16,17 +16,16 @@ function isEmpty() {
 }
 /**
 * Create a ROLE item.
-* @param  {string} text The content of the ROLE
+* @param  {string} role The content of the ROLE
 */
-function create(text) {
+function create(obj) {
     var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
     _roles[id] = {
         id: id,
         complete: false,
-        company: '',
-        dailyRate: 0,
-        recruiter: '',
-        text: text
+        company: obj.company || '',
+        dailyrate: obj.dailyrate || 0,
+        recruiter: obj.recruiter || ''
     };
     saveInLS();
 }
@@ -119,13 +118,14 @@ var RoleStore = assign({}, EventEmitter.prototype, {
 
 // Register callback to handle all updates
 AppDispatcher.register(function(action) {
-    var text;
+    var role;
 
     switch(action.actionType) {
         case RoleConstants.ROLE_CREATE:
-        text = action.text.trim();
-        if (text !== '') {
-            create(text);
+        role = action.role;
+        if (role !== '') {
+            create(role);
+            console.log(role);
             RoleStore.emitChange();
         }
         break;
@@ -150,9 +150,9 @@ AppDispatcher.register(function(action) {
         break;
 
         case RoleConstants.ROLE_UPDATE_TEXT:
-        text = action.text.trim();
-        if (text !== '') {
-            update(action.id, {text: text});
+        role = action.role;
+        if (role !== '') {
+            update(action.id, {'role': role});
             RoleStore.emitChange();
         }
         break;
