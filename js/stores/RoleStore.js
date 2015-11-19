@@ -5,7 +5,7 @@ var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
 
-var _roles = {};
+var _roles = JSON.parse(localStorage.roles) || {};
 
 
 function saveInLS() {

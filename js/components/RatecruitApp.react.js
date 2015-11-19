@@ -36,9 +36,7 @@ var RatecruitApp = React.createClass({
             <div>
             <Header />
             <MainSection
-                allRoles={this.state.allRoles}
-                areAllComplete={this.state.areAllComplete}
-            />
+                allRoles={this.state.allRoles} />
             <Footer allRoles={this.state.allRoles} />
             </div>
         );
