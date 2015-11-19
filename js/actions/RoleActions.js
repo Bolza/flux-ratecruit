@@ -6,20 +6,20 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * TodoActions
+ * RoleActions
  */
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-var TodoConstants = require('../constants/TodoConstants');
+var RoleConstants = require('../constants/RoleConstants');
 
-var TodoActions = {
+var RoleActions = {
 
   /**
    * @param  {string} text
    */
   create: function(text) {
     AppDispatcher.dispatch({
-      actionType: TodoConstants.TODO_CREATE,
+      actionType: RoleConstants.ROLE_CREATE,
       text: text
     });
   },
@@ -30,7 +30,7 @@ var TodoActions = {
    */
   updateText: function(id, text) {
     AppDispatcher.dispatch({
-      actionType: TodoConstants.TODO_UPDATE_TEXT,
+      actionType: RoleConstants.ROLE_UPDATE_TEXT,
       id: id,
       text: text
     });
@@ -43,8 +43,8 @@ var TodoActions = {
   toggleComplete: function(todo) {
     var id = todo.id;
     var actionType = todo.complete ?
-        TodoConstants.TODO_UNDO_COMPLETE :
-        TodoConstants.TODO_COMPLETE;
+        RoleConstants.ROLE_UNDO_COMPLETE :
+        RoleConstants.ROLE_COMPLETE;
 
     AppDispatcher.dispatch({
       actionType: actionType,
@@ -57,7 +57,7 @@ var TodoActions = {
    */
   toggleCompleteAll: function() {
     AppDispatcher.dispatch({
-      actionType: TodoConstants.TODO_TOGGLE_COMPLETE_ALL
+      actionType: RoleConstants.ROLE_TOGGLE_COMPLETE_ALL
     });
   },
 
@@ -66,7 +66,7 @@ var TodoActions = {
    */
   destroy: function(id) {
     AppDispatcher.dispatch({
-      actionType: TodoConstants.TODO_DESTROY,
+      actionType: RoleConstants.ROLE_DESTROY,
       id: id
     });
   },
@@ -76,10 +76,10 @@ var TodoActions = {
    */
   destroyCompleted: function() {
     AppDispatcher.dispatch({
-      actionType: TodoConstants.TODO_DESTROY_COMPLETED
+      actionType: RoleConstants.ROLE_DESTROY_COMPLETED
     });
   }
 
 };
 
-module.exports = TodoActions;
+module.exports = RoleActions;
